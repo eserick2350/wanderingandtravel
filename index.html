@@ -3,145 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wandering and Travel</title>
-  <meta name="description" content="Viajes, rutas y notas de camino. Wandering and Travel.">
+  <title>Wandering | Más que simples destinos</title>
+  <meta name="description" content="Guías de viaje y orientación para recorrer destinos con sentido. Wandering.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,300&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6f3ee;
-      --ink: #1d1c1a;
-      --muted: #6f6a62;
-      --line: #dcd6cc;
-      --accent: #b5673a;
-      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-      --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --azul: #04ADBF;
+      --amarillo: #F2B705;
+      --verde: #208C0D;
+      --naranja: #F25C05;
+      --rojo: #F23E2E;
+      --crema: #ECE6D2;
+      --carbon: #282828;
+      --display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+      --body: "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
+      --logo: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { background: var(--crema); color: var(--carbon); font-family: var(--body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-    header { position: sticky; top: 0; z-index: 10; background: rgba(246,243,238,.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
-    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { font-family: var(--serif); font-size: 1.15rem; letter-spacing: .02em; }
-    nav a { font-size: .85rem; color: var(--muted); margin-left: 28px; letter-spacing: .04em; text-transform: uppercase; }
-    nav a:hover { color: var(--ink); }
+    header { position: sticky; top: 0; z-index: 10; background: var(--crema); border-bottom: 2px solid var(--carbon); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-family: var(--logo); font-weight: 700; font-size: 1.6rem; letter-spacing: -.02em; display: flex; align-items: center; gap: 6px; }
+    .logo i { display: inline-block; width: 10px; height: 10px; border-radius: 50% 50% 50% 0; background: var(--rojo); transform: rotate(-45deg); margin-left: 2px; }
+    nav a { font-size: .85rem; font-weight: 700; margin-left: 28px; letter-spacing: .06em; text-transform: uppercase; }
+    nav a:hover { color: var(--naranja); }
 
-    .hero { padding: 140px 0 120px; }
-    .eyebrow { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
-    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.08; max-width: 14ch; }
-    .hero p { margin-top: 28px; max-width: 46ch; color: var(--muted); font-size: 1.1rem; }
-    .cta { display: inline-block; margin-top: 40px; padding: 14px 26px; border: 1px solid var(--ink); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, color .2s; }
-    .cta:hover { background: var(--ink); color: var(--bg); }
+    .hero { background: var(--azul); color: var(--crema); padding: 120px 0 110px; position: relative; overflow: hidden; }
+    .hero .wrap { position: relative; z-index: 1; }
+    .slogan { font-family: var(--display); line-height: .92; text-transform: uppercase; color: var(--carbon); }
+    .slogan .l1 { display: block; font-size: clamp(4.5rem, 14vw, 10rem); color: var(--crema); }
+    .slogan .l2 { display: block; font-family: var(--body); font-style: italic; font-weight: 300; font-size: clamp(2.2rem, 6vw, 4.2rem); letter-spacing: .02em; color: var(--carbon); }
+    .slogan .l3 { display: block; font-size: clamp(4rem, 12vw, 8.5rem); color: var(--amarillo); }
+    .hero p.lead { margin-top: 36px; max-width: 44ch; font-size: 1.12rem; color: var(--carbon); font-weight: 600; }
+    .cta { display: inline-block; margin-top: 40px; padding: 15px 28px; background: var(--naranja); color: var(--crema); font-weight: 700; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; border: 2px solid var(--carbon); transition: transform .15s; }
+    .cta:hover { transform: translate(-3px, -3px); box-shadow: 4px 4px 0 var(--carbon); }
 
-    section { padding: 110px 0; border-top: 1px solid var(--line); }
-    .label { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-    h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.2; margin-bottom: 56px; max-width: 22ch; }
+    .band { background: var(--verde); color: var(--crema); padding: 22px 0; font-family: var(--display); font-size: 1.6rem; letter-spacing: .08em; text-transform: uppercase; }
+    .band .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
-    .card .num { font-family: var(--serif); color: var(--accent); font-size: .95rem; }
-    .card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.4rem; margin: 10px 0 12px; }
-    .card p { color: var(--muted); font-size: .95rem; }
-    .card .rule { height: 1px; background: var(--line); margin-top: 22px; }
+    section.bloque { padding: 110px 0; }
+    .label { display: inline-block; font-weight: 700; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; background: var(--carbon); color: var(--crema); padding: 6px 12px; margin-bottom: 24px; }
+    h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: .95; text-transform: uppercase; margin-bottom: 56px; max-width: 16ch; }
+    h2 em { font-family: var(--body); font-style: italic; font-weight: 300; text-transform: none; font-size: .6em; display: block; margin-top: 8px; }
 
-    .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .notes ul { list-style: none; }
-    .notes li { padding: 22px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 24px; }
-    .notes li span:first-child { font-family: var(--serif); font-size: 1.15rem; }
-    .notes li span:last-child { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .card { background: var(--crema); border: 2px solid var(--carbon); padding: 32px 28px 36px; position: relative; }
+    .card .shape { width: 64px; height: 64px; margin-bottom: 24px; }
+    .card h3 { font-family: var(--display); font-weight: 400; font-size: 2.1rem; line-height: 1; text-transform: uppercase; margin-bottom: 12px; }
+    .card p { font-size: .98rem; }
+    .card.c1 { background: var(--amarillo); }
+    .card.c2 { background: var(--azul); color: var(--carbon); }
+    .card.c3 { background: var(--naranja); color: var(--crema); }
 
-    .contact p { color: var(--muted); max-width: 44ch; margin-bottom: 32px; }
-    .contact a.mail { font-family: var(--serif); font-size: 1.6rem; border-bottom: 1px solid var(--accent); padding-bottom: 4px; }
+    .sobre { background: var(--carbon); color: var(--crema); }
+    .sobre h2 { color: var(--amarillo); }
+    .sobre .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .sobre p { font-size: 1.05rem; margin-bottom: 18px; color: #d8d2c0; }
+    .sobre ul { list-style: none; }
+    .sobre li { border-top: 2px solid var(--crema); padding: 18px 0; font-family: var(--display); font-size: 1.9rem; letter-spacing: .03em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+    .sobre li span:last-child { font-family: var(--body); font-size: .8rem; font-weight: 700; color: var(--azul); letter-spacing: .08em; }
 
-    footer { border-top: 1px solid var(--line); padding: 36px 0; font-size: .8rem; color: var(--muted); }
+    .contacto .wrap { text-align: left; }
+    .contacto h2 { margin-bottom: 24px; }
+    .contacto p { max-width: 46ch; margin-bottom: 36px; font-size: 1.05rem; }
+    .contacto a.mail { display: inline-block; font-weight: 700; font-size: 1.3rem; background: var(--rojo); color: var(--crema); padding: 14px 22px; border: 2px solid var(--carbon); }
+    .contacto a.mail:hover { background: var(--carbon); }
+
+    footer { background: var(--carbon); color: #c9c3b1; padding: 32px 0; font-size: .85rem; }
     footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
     @media (max-width: 800px) {
       nav a { margin-left: 16px; }
-      .hero { padding: 96px 0 80px; }
+      .hero { padding: 90px 0 80px; }
       .grid { grid-template-columns: 1fr; }
-      .notes { grid-template-columns: 1fr; gap: 48px; }
-      section { padding: 80px 0; }
+      .sobre .split { grid-template-columns: 1fr; gap: 40px; }
+      section.bloque { padding: 80px 0; }
+      nav a:not(:last-child) { display: none; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <a href="#" class="brand">Wandering and Travel</a>
+      <a href="#" class="logo">Wandering<i></i></a>
       <nav>
-        <a href="#destinos">Destinos</a>
-        <a href="#notas">Notas</a>
+        <a href="#guias">Guías</a>
+        <a href="#sobre">Sobre</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="hero wrap">
-      <p class="eyebrow">Viajes con calma</p>
-      <h1>Rutas simples, lugares que se quedan.</h1>
-      <p>Itinerarios claros, notas de camino y lugares elegidos con criterio. Viajar sin prisa y con atención a los detalles.</p>
-      <a href="#destinos" class="cta">Ver destinos</a>
+    <section class="hero">
+      <div class="wrap">
+        <h1 class="slogan">
+          <span class="l1">Más</span>
+          <span class="l2">que</span>
+          <span class="l2">simples</span>
+          <span class="l3">destinos</span>
+        </h1>
+        <p class="lead">Guías de viaje y orientación para recorrer cada lugar con más sentido. Información clara, rutas pensadas y consejos prácticos para que el viaje sea tuyo.</p>
+        <a href="#guias" class="cta">Ver guías</a>
+      </div>
+    </section>
+
+    <div class="band">
+      <div class="wrap">
+        <span>Tu próxima aventura comienza aquí.</span>
+        <span>Viajá distinto, viajá con sentido.</span>
+      </div>
     </div>
 
-    <section id="destinos">
+    <section class="bloque" id="guias">
       <div class="wrap">
-        <p class="label">Destinos</p>
-        <h2>Tres formas de recorrer el mundo.</h2>
+        <span class="label">Guías</span>
+        <h2>Cómo recorrer<em>sin perder el rumbo</em></h2>
         <div class="grid">
-          <article class="card">
-            <span class="num">01</span>
-            <h3>Ciudades a pie</h3>
-            <p>Barrios, mercados y cafés. Recorridos de medio día pensados para caminar sin cansancio.</p>
-            <div class="rule"></div>
+          <article class="card c1">
+            <svg class="shape" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 C44 4 60 16 60 32 C60 48 44 60 32 60 C20 60 4 48 4 32 C4 16 20 4 32 4Z" fill="#282828"/><circle cx="32" cy="30" r="8" fill="#F2B705"/></svg>
+            <h3>Guías de ciudad</h3>
+            <p>Barrios, mercados y cafés organizados por zona, con recorridos de medio día pensados para caminar con calma.</p>
           </article>
-          <article class="card">
-            <span class="num">02</span>
-            <h3>Rutas de montaña</h3>
-            <p>Senderos con horarios, distancias y mejores momentos de luz para fotografiar.</p>
-            <div class="rule"></div>
+          <article class="card c2">
+            <svg class="shape" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 44 L24 16 L36 32 L44 22 L60 44 Z" fill="#282828"/></svg>
+            <h3>Rutas y naturaleza</h3>
+            <p>Senderos con distancias, horarios y mejores momentos de luz. Orientación para moverte con seguridad.</p>
           </article>
-          <article class="card">
-            <span class="num">03</span>
-            <h3>Costa y pueblos</h3>
-            <p>Escapadas de varios días, con presupuesto por persona y opciones de transporte.</p>
-            <div class="rule"></div>
+          <article class="card c3">
+            <svg class="shape" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 L56 32 L32 58 L8 32 Z" fill="#ECE6D2"/><circle cx="32" cy="32" r="7" fill="#F23E2E"/></svg>
+            <h3>Orientación práctica</h3>
+            <p>Transporte, presupuesto por persona y cómo organizar el día sin correr. Lo esencial, en un solo lugar.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="notas">
-      <div class="wrap notes">
+    <section class="bloque sobre" id="sobre">
+      <div class="wrap split">
         <div>
-          <p class="label">Notas</p>
-          <h2>Lo que aprendemos en el camino.</h2>
-          <p style="color:var(--muted);max-width:44ch;">Guías breves con consejos prácticos sobre vuelos, alojamiento y cómo organizar el día sin correr.</p>
+          <span class="label" style="background:var(--amarillo);color:var(--carbon);">Sobre Wandering</span>
+          <h2>Más que simples destinos.</h2>
+          <p>Wandering nace de una idea sencilla: viajar bien requiere información confiable y un poco de criterio. No vendemos paquetes. Escribimos guías y orientación para que decidas tu propio recorrido.</p>
+          <p>Cada guía se basa en lugares reales, con datos verificados y un tono cercano, claro y aventurero.</p>
         </div>
         <ul>
-          <li><span>Cómo planear un día sin prisa</span><span>Itinerario</span></li>
-          <li><span>Equipaje para una semana</span><span>Práctico</span></li>
-          <li><span>Fotografiar en la hora dorada</span><span>Fotografía</span></li>
-          <li><span>Presupuesto por persona</span><span>Finanzas</span></li>
+          <li><span>Planear</span><span>01</span></li>
+          <li><span>Recorrer</span><span>02</span></li>
+          <li><span>Descubrir</span><span>03</span></li>
+          <li><span>Volver con historias</span><span>04</span></li>
         </ul>
       </div>
     </section>
 
-    <section id="contacto">
-      <div class="wrap contact">
-        <p class="label">Contacto</p>
-        <h2>¿Planeas un viaje?</h2>
-        <p>Escríbeme con fechas, presupuesto y lo que te interesa. Respondo con una propuesta de ruta.</p>
-        <a class="mail" href="mailto:hola@wanderingandtravel.com">hola@wanderingandtravel.com</a>
+    <section class="bloque contacto" id="contacto">
+      <div class="wrap">
+        <span class="label">Contacto</span>
+        <h2>¿Tienes un destino en mente?</h2>
+        <p>Escríbenos con el destino, las fechas y lo que te interesa. Con gusto te orientamos para que tu viaje tenga sentido.</p>
+        <a class="mail" href="mailto:wandering@wanderingandtravel.com">wandering@wanderingandtravel.com</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Wandering and Travel</span>
-      <span>Hecho con calma.</span>
+      <span>© 2026 Wandering. Todos los derechos reservados.</span>
+      <span>Con gusto te apoyamos en lo que necesites.</span>
     </div>
   </footer>
 </body>
