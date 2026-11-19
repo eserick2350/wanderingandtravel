@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wandering and Travel</title>
+  <meta name="description" content="Viajes, rutas y notas de camino. Wandering and Travel.">
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --ink: #1d1c1a;
+      --muted: #6f6a62;
+      --line: #dcd6cc;
+      --accent: #b5673a;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    header { position: sticky; top: 0; z-index: 10; background: rgba(246,243,238,.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-family: var(--serif); font-size: 1.15rem; letter-spacing: .02em; }
+    nav a { font-size: .85rem; color: var(--muted); margin-left: 28px; letter-spacing: .04em; text-transform: uppercase; }
+    nav a:hover { color: var(--ink); }
+
+    .hero { padding: 140px 0 120px; }
+    .eyebrow { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.08; max-width: 14ch; }
+    .hero p { margin-top: 28px; max-width: 46ch; color: var(--muted); font-size: 1.1rem; }
+    .cta { display: inline-block; margin-top: 40px; padding: 14px 26px; border: 1px solid var(--ink); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, color .2s; }
+    .cta:hover { background: var(--ink); color: var(--bg); }
+
+    section { padding: 110px 0; border-top: 1px solid var(--line); }
+    .label { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.2; margin-bottom: 56px; max-width: 22ch; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
+    .card .num { font-family: var(--serif); color: var(--accent); font-size: .95rem; }
+    .card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.4rem; margin: 10px 0 12px; }
+    .card p { color: var(--muted); font-size: .95rem; }
+    .card .rule { height: 1px; background: var(--line); margin-top: 22px; }
+
+    .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .notes ul { list-style: none; }
+    .notes li { padding: 22px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 24px; }
+    .notes li span:first-child { font-family: var(--serif); font-size: 1.15rem; }
+    .notes li span:last-child { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+
+    .contact p { color: var(--muted); max-width: 44ch; margin-bottom: 32px; }
+    .contact a.mail { font-family: var(--serif); font-size: 1.6rem; border-bottom: 1px solid var(--accent); padding-bottom: 4px; }
+
+    footer { border-top: 1px solid var(--line); padding: 36px 0; font-size: .8rem; color: var(--muted); }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 800px) {
+      nav a { margin-left: 16px; }
+      .hero { padding: 96px 0 80px; }
+      .grid { grid-template-columns: 1fr; }
+      .notes { grid-template-columns: 1fr; gap: 48px; }
+      section { padding: 80px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="#" class="brand">Wandering and Travel</a>
+      <nav>
+        <a href="#destinos">Destinos</a>
+        <a href="#notas">Notas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero wrap">
+      <p class="eyebrow">Viajes con calma</p>
+      <h1>Rutas simples, lugares que se quedan.</h1>
+      <p>Itinerarios claros, notas de camino y lugares elegidos con criterio. Viajar sin prisa y con atención a los detalles.</p>
+      <a href="#destinos" class="cta">Ver destinos</a>
+    </div>
+
+    <section id="destinos">
+      <div class="wrap">
+        <p class="label">Destinos</p>
+        <h2>Tres formas de recorrer el mundo.</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="num">01</span>
+            <h3>Ciudades a pie</h3>
+            <p>Barrios, mercados y cafés. Recorridos de medio día pensados para caminar sin cansancio.</p>
+            <div class="rule"></div>
+          </article>
+          <article class="card">
+            <span class="num">02</span>
+            <h3>Rutas de montaña</h3>
+            <p>Senderos con horarios, distancias y mejores momentos de luz para fotografiar.</p>
+            <div class="rule"></div>
+          </article>
+          <article class="card">
+            <span class="num">03</span>
+            <h3>Costa y pueblos</h3>
+            <p>Escapadas de varios días, con presupuesto por persona y opciones de transporte.</p>
+            <div class="rule"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="notas">
+      <div class="wrap notes">
+        <div>
+          <p class="label">Notas</p>
+          <h2>Lo que aprendemos en el camino.</h2>
+          <p style="color:var(--muted);max-width:44ch;">Guías breves con consejos prácticos sobre vuelos, alojamiento y cómo organizar el día sin correr.</p>
+        </div>
+        <ul>
+          <li><span>Cómo planear un día sin prisa</span><span>Itinerario</span></li>
+          <li><span>Equipaje para una semana</span><span>Práctico</span></li>
+          <li><span>Fotografiar en la hora dorada</span><span>Fotografía</span></li>
+          <li><span>Presupuesto por persona</span><span>Finanzas</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap contact">
+        <p class="label">Contacto</p>
+        <h2>¿Planeas un viaje?</h2>
+        <p>Escríbeme con fechas, presupuesto y lo que te interesa. Respondo con una propuesta de ruta.</p>
+        <a class="mail" href="mailto:hola@wanderingandtravel.com">hola@wanderingandtravel.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Wandering and Travel</span>
+      <span>Hecho con calma.</span>
+    </div>
+  </footer>
+</body>
+</html>
