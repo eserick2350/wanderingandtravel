@@ -7,26 +7,23 @@
   <meta name="description" content="Guías de viaje y orientación para recorrer destinos con sentido. Wandering.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,300&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
+      /* Colores de marca: solo para acentos pequeños (puntos, viñetas) */
       --azul: #04ADBF;
       --amarillo: #F2B705;
       --verde: #208C0D;
       --naranja: #F25C05;
       --rojo: #F23E2E;
+      /* Base neutral */
       --crema: #F4F0E4;
-      --azul-suave: #D6EEF1;
-      --verde-suave: #DCEBD6;
-      --amarillo-suave: #F8EDC7;
-      --naranja-suave: #F6DCCB;
+      --crema-clara: #FBF9F3;
       --carbon: #2B2A27;
       --gris: #6B675E;
       --linea: rgba(43, 42, 39, .14);
-      --acento-texto: #B5482A;
       --display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
       --body: "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
-      --logo: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -34,46 +31,48 @@
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-    header { position: sticky; top: 0; z-index: 10; background: var(--crema); border-bottom: 1px solid var(--linea); }
-    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
-    .logo { font-family: var(--logo); font-weight: 700; font-size: 1.5rem; letter-spacing: -.02em; display: flex; align-items: center; gap: 6px; }
-    .logo i { display: inline-block; width: 9px; height: 9px; border-radius: 50% 50% 50% 0; background: var(--azul); transform: rotate(-45deg); margin-left: 2px; }
-    nav a { font-size: .8rem; font-weight: 600; margin-left: 28px; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }
-    nav a:hover { color: var(--carbon); }
+    header { position: sticky; top: 0; z-index: 10; background: var(--carbon); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    header img { height: 26px; width: auto; display: block; }
+    nav a { font-size: .78rem; font-weight: 600; margin-left: 28px; letter-spacing: .08em; text-transform: uppercase; color: #CFC9B8; }
+    nav a:hover { color: #FFFFFF; }
 
     section { padding: 110px 0; }
-    .label { display: inline-block; font-weight: 700; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--acento-texto); margin-bottom: 20px; }
-    h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 5.5vw, 4.4rem); line-height: .98; letter-spacing: .01em; text-transform: uppercase; margin-bottom: 52px; max-width: 16ch; }
-    h2 em { font-family: var(--body); font-style: italic; font-weight: 300; text-transform: none; font-size: .5em; display: block; margin-top: 10px; color: var(--gris); }
+    .label { display: inline-block; font-weight: 700; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); margin-bottom: 20px; }
+    h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 5.5vw, 4.4rem); line-height: .98; letter-spacing: .01em; text-transform: uppercase; margin-bottom: 48px; max-width: 16ch; }
 
-    .hero { background: var(--azul-suave); padding: 120px 0 110px; }
+    .hero { padding: 120px 0 110px; }
     .slogan { font-family: var(--display); line-height: .95; text-transform: uppercase; }
-    .slogan .l1 { display: block; font-size: clamp(4.5rem, 12vw, 8.5rem); color: var(--carbon); }
-    .slogan .l2 { display: block; font-family: var(--body); font-style: italic; font-weight: 300; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: .02em; color: var(--carbon); }
-    .slogan .l3 { display: block; font-size: clamp(4rem, 10.5vw, 7.5rem); color: var(--acento-texto); }
+    .slogan .l1 { display: block; font-size: clamp(4.5rem, 12vw, 8.5rem); }
+    .slogan .l2 { display: block; font-family: var(--body); font-style: italic; font-weight: 300; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: .02em; color: var(--gris); }
+    .slogan .l3 { display: block; font-size: clamp(4rem, 10.5vw, 7.5rem); }
     .hero p.lead { margin-top: 36px; max-width: 46ch; font-size: 1.08rem; color: var(--carbon); }
     .cta { display: inline-block; margin-top: 40px; padding: 14px 28px; border: 1.5px solid var(--carbon); font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; transition: background .2s, color .2s; }
     .cta:hover { background: var(--carbon); color: var(--crema); }
 
-    .guias { background: var(--crema); }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .card { background: #FBF9F3; border: 1px solid var(--linea); border-radius: 4px; padding: 34px 28px 36px; }
-    .card .shape { width: 44px; height: 44px; margin-bottom: 26px; }
-    .card h3 { font-family: var(--display); font-weight: 400; font-size: 1.9rem; line-height: 1; text-transform: uppercase; margin-bottom: 12px; }
-    .card p { font-size: .96rem; color: var(--gris); }
+    /* Guías: lista con viñetas de marca */
+    .guias { border-top: 1px solid var(--linea); }
+    .guias ul { list-style: none; border-top: 1px solid var(--linea); max-width: 760px; }
+    .guias li { border-bottom: 1px solid var(--linea); }
+    .guias li a, .guias li div { display: flex; align-items: center; gap: 18px; padding: 22px 0; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; flex: 0 0 auto; }
+    .guias .titulo { font-family: var(--display); font-size: 1.9rem; letter-spacing: .02em; text-transform: uppercase; line-height: 1; }
+    .guias .desc { color: var(--gris); font-size: .95rem; margin-left: auto; text-align: right; }
+    .guias a:hover .titulo { text-decoration: underline; text-underline-offset: 6px; }
+    .estado { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gris); border: 1px solid var(--linea); padding: 3px 9px; white-space: nowrap; }
 
-    .sobre { background: var(--verde-suave); }
+    .sobre { border-top: 1px solid var(--linea); }
     .sobre .split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-    .sobre p { font-size: 1.04rem; margin-bottom: 18px; color: var(--carbon); }
+    .sobre p { font-size: 1.04rem; margin-bottom: 18px; }
     .sobre ul { list-style: none; border-top: 1px solid var(--linea); }
     .sobre li { border-bottom: 1px solid var(--linea); padding: 20px 0; font-family: var(--display); font-size: 1.8rem; letter-spacing: .02em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
     .sobre li span:last-child { font-family: var(--body); font-size: .8rem; font-weight: 700; color: var(--gris); letter-spacing: .08em; }
 
-    .contacto { background: var(--amarillo-suave); }
+    .contacto { border-top: 1px solid var(--linea); }
     .contacto h2 { margin-bottom: 24px; }
     .contacto p { max-width: 46ch; margin-bottom: 36px; font-size: 1.04rem; }
-    .contacto a.mail { display: inline-block; font-weight: 700; font-size: 1.15rem; color: var(--carbon); border-bottom: 2px solid var(--acento-texto); padding-bottom: 4px; }
-    .contacto a.mail:hover { color: var(--acento-texto); }
+    .contacto a.mail { display: inline-block; font-weight: 700; font-size: 1.15rem; color: var(--carbon); border-bottom: 2px solid var(--carbon); padding-bottom: 4px; }
+    .contacto a.mail:hover { color: var(--gris); border-color: var(--gris); }
 
     footer { background: var(--carbon); color: #CFC9B8; padding: 30px 0; font-size: .84rem; }
     footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -83,15 +82,15 @@
       nav a:not(:last-child) { display: none; }
       section { padding: 80px 0; }
       .hero { padding: 90px 0 80px; }
-      .grid { grid-template-columns: 1fr; }
       .sobre .split { grid-template-columns: 1fr; gap: 40px; }
+      .guias .desc { display: none; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <a href="#" class="logo">Wandering<i></i></a>
+      <a href="#"><img src="logo-white.png" alt="Wandering"></a>
       <nav>
         <a href="#guias">Guías</a>
         <a href="#sobre">Sobre</a>
@@ -117,24 +116,14 @@
     <section class="guias" id="guias">
       <div class="wrap">
         <span class="label">Guías</span>
-        <h2>Cómo recorrer<em>sin perder el rumbo</em></h2>
-        <div class="grid">
-          <article class="card">
-            <svg class="shape" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 C44 4 60 16 60 32 C60 48 44 60 32 60 C20 60 4 48 4 32 C4 16 20 4 32 4Z" fill="#04ADBF"/><circle cx="32" cy="30" r="8" fill="#FBF9F3"/></svg>
-            <h3>Guías de ciudad</h3>
-            <p>Barrios, mercados y cafés organizados por zona, con recorridos de medio día pensados para caminar con calma.</p>
-          </article>
-          <article class="card">
-            <svg class="shape" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 44 L24 16 L36 32 L44 22 L60 44 Z" fill="#208C0D"/></svg>
-            <h3>Rutas y naturaleza</h3>
-            <p>Senderos con distancias, horarios y mejores momentos de luz. Orientación para moverte con seguridad.</p>
-          </article>
-          <article class="card">
-            <svg class="shape" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 L56 32 L32 58 L8 32 Z" fill="#F25C05"/><circle cx="32" cy="32" r="7" fill="#FBF9F3"/></svg>
-            <h3>Orientación práctica</h3>
-            <p>Transporte, presupuesto por persona y cómo organizar el día sin correr. Lo esencial, en un solo lugar.</p>
-          </article>
-        </div>
+        <h2>Cómo recorrer</h2>
+        <ul>
+          <li><a href="guias/donde-comer-guatemala.html"><span class="dot" style="background:var(--azul)"></span><span class="titulo">Dónde comer en Guatemala</span><span class="desc">Zona 10, Ciudad de Guatemala</span><span class="estado">Publicada</span></a></li>
+          <li><div><span class="dot" style="background:var(--amarillo)"></span><span class="titulo">Guías de ciudad</span><span class="desc">Barrios, mercados y cafés por zona</span><span class="estado">Próximamente</span></div></li>
+          <li><div><span class="dot" style="background:var(--verde)"></span><span class="titulo">Rutas y naturaleza</span><span class="desc">Senderos, horarios y luz</span><span class="estado">Próximamente</span></div></li>
+          <li><div><span class="dot" style="background:var(--naranja)"></span><span class="titulo">Orientación práctica</span><span class="desc">Transporte y presupuesto por persona</span><span class="estado">Próximamente</span></div></li>
+          <li><div><span class="dot" style="background:var(--rojo)"></span><span class="titulo">Escapadas</span><span class="desc">Planes de fin de semana</span><span class="estado">Próximamente</span></div></li>
+        </ul>
       </div>
     </section>
 
